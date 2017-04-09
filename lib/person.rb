@@ -21,7 +21,7 @@ attr_accessor :name, :cash, :account
   end
 
   def withdraw(arg ={})
-    @account.nil? ? missing_account : withdraw_funds
+    @account.nil? ? missing_account : withdraw_funds(arg)
   end
 
 private
@@ -40,7 +40,7 @@ private
     response[:status] == true ? increase_cash(response) : response
   end
 
-  def increase_cash
+  def increase_cash(response)
     @cash += response[:amount]
   end
 
